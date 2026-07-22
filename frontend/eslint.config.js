@@ -9,7 +9,15 @@ export default [
   ...ts.configs.recommended,
   ...svelte.configs['flat/recommended'],
   prettier,
-  { languageOptions: { globals: { ...globals.browser, ...globals.node } } },
+  {
+    languageOptions: { globals: { ...globals.browser, ...globals.node } },
+    rules: {
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }
+      ]
+    }
+  },
   {
     files: ['**/*.svelte'],
     languageOptions: { parserOptions: { parser: ts.parser } }
