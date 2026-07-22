@@ -1,9 +1,9 @@
 import en from './en';
 import fr from './fr';
+import type { Dict, Lang } from './types';
 
-export type Lang = 'en' | 'fr';
-export const dictionaries = { en, fr } as const;
-export type Dict = typeof en;
+export type { Dict, Lang };
+export const dictionaries: Record<Lang, Dict> = { en, fr };
 
 class LangState {
   current = $state<Lang>('fr');

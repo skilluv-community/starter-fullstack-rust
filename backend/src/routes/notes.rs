@@ -1,13 +1,13 @@
 use axum::{
-    Json, Router,
     extract::{Path, State},
     http::StatusCode,
     routing::{delete, get},
+    Json, Router,
 };
 use uuid::Uuid;
 
-use crate::AppState;
 use crate::models::note::{NewNote, Note};
+use crate::AppState;
 
 pub fn routes() -> Router<AppState> {
     Router::new()
