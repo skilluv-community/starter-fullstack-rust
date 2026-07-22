@@ -49,7 +49,11 @@ async fn notes_crud_roundtrip() {
         .json()
         .await
         .expect("json");
-    assert!(list.as_array().expect("array").iter().any(|n| n["id"] == id));
+    assert!(list
+        .as_array()
+        .expect("array")
+        .iter()
+        .any(|n| n["id"] == id));
 
     let del = client
         .delete(format!("{base}/api/notes/{id}"))
