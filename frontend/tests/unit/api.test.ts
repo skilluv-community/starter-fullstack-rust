@@ -3,10 +3,14 @@ import { sayHello } from '$lib/api';
 
 describe('sayHello', () => {
   it('builds URL with name and returns parsed JSON', async () => {
-    const fetchMock = vi.fn(async () =>
-      new Response(JSON.stringify({ message: 'Hello Ada!', server_time: '2026-07-22T00:00:00Z' }), {
-        status: 200
-      })
+    const fetchMock = vi.fn(
+      async () =>
+        new Response(
+          JSON.stringify({ message: 'Hello Ada!', server_time: '2026-07-22T00:00:00Z' }),
+          {
+            status: 200
+          }
+        )
     );
     vi.stubGlobal('fetch', fetchMock);
 
@@ -17,7 +21,10 @@ describe('sayHello', () => {
   });
 
   it('throws on non-2xx', async () => {
-    vi.stubGlobal('fetch', vi.fn(async () => new Response('nope', { status: 500 })));
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async () => new Response('nope', { status: 500 }))
+    );
     await expect(sayHello('X')).rejects.toThrow(/hello failed/);
   });
 });

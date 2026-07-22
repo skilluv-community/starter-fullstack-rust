@@ -9,10 +9,7 @@
   <nav class="flex gap-4 items-center">
     <a href="/" class="hover:underline">home</a>
     <a href="/notes" class="hover:underline">notes</a>
-    <button
-      class="rounded border border-slate-700 px-2 py-1 text-xs"
-      onclick={() => lang.toggle()}
-    >
+    <button class="rounded border border-slate-700 px-2 py-1 text-xs" onclick={() => lang.toggle()}>
       {lang.t.lang_switch}
     </button>
   </nav>

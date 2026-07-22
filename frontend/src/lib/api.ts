@@ -1,4 +1,5 @@
-const BASE = (import.meta.env.VITE_PUBLIC_API_BASE as string | undefined) ??
+const BASE =
+  (import.meta.env.VITE_PUBLIC_API_BASE as string | undefined) ??
   (typeof process !== 'undefined' ? process.env.PUBLIC_API_BASE : undefined) ??
   'http://localhost:3001';
 
