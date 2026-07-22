@@ -6,9 +6,9 @@ export type { Dict, Lang };
 export const dictionaries: Record<Lang, Dict> = { en, fr };
 
 class LangState {
-  current = $state<Lang>('fr');
+  current = $state<Lang>('en');
   toggle() {
-    this.current = this.current === 'fr' ? 'en' : 'fr';
+    this.current = this.current === 'en' ? 'fr' : 'en';
   }
   get t(): Dict {
     return dictionaries[this.current];
