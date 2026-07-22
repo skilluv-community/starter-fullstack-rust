@@ -4,7 +4,7 @@ import { sayHello } from '$lib/api';
 describe('sayHello', () => {
   it('builds URL with name and returns parsed JSON', async () => {
     const fetchMock = vi.fn(
-      async () =>
+      async (_input: URL | RequestInfo, _init?: RequestInit) =>
         new Response(
           JSON.stringify({ message: 'Hello Ada!', server_time: '2026-07-22T00:00:00Z' }),
           {
@@ -16,10 +16,12 @@ describe('sayHello', () => {
 
     const r = await sayHello('Ada');
     expect(r.message).toBe('Hello Ada!');
-    const firstCall = fetchMock.mock.calls[0];
-    expect(firstCall).toBeDefined();
-    const called = firstCall![0] as URL;
-    expect(called.searchParams.get('name')).toBe('Ada');
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    const firstArg = fetchMock.mock.calls[0]?.[0];
+    expect(firstArg).toBeInstanceOf(URL);
+    if (firstArg instanceof URL) {
+      expect(firstArg.searchParams.get('name')).toBe('Ada');
+    }
   });
 
   it('throws on non-2xx', async () => {
