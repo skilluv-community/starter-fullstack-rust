@@ -1,3 +1,5 @@
+// The lang_switch value shows the label of the OTHER language (so when EN is
+// active the button offers to switch to FR).
 export default {
   title: 'Skilluv starter — fullstack Rust',
   tagline: 'Rust + Axum backend, SvelteKit frontend, PostgreSQL, ready to hack.',

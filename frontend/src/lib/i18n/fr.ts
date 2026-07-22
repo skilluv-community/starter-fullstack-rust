@@ -7,5 +7,5 @@ export default {
   notes_placeholder: 'Écris une note…',
   notes_add: 'Ajouter',
   notes_empty: 'Aucune note pour le moment.',
-  lang_switch: 'EN'
+  lang_switch: 'EN' // shows label of OTHER lang
 } as const;
