@@ -16,7 +16,9 @@ describe('sayHello', () => {
 
     const r = await sayHello('Ada');
     expect(r.message).toBe('Hello Ada!');
-    const called = fetchMock.mock.calls[0][0] as URL;
+    const firstCall = fetchMock.mock.calls[0];
+    expect(firstCall).toBeDefined();
+    const called = firstCall![0] as URL;
     expect(called.searchParams.get('name')).toBe('Ada');
   });
 
