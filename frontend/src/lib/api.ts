@@ -1,6 +1,4 @@
-const BASE = (import.meta.env.VITE_PUBLIC_API_BASE as string | undefined) ??
-  (typeof process !== 'undefined' ? process.env.PUBLIC_API_BASE : undefined) ??
-  'http://localhost:3001';
+const BASE = (import.meta.env.PUBLIC_API_BASE as string | undefined) ?? 'http://localhost:3001';
 
 export type Note = { id: string; text: string; created_at: string };
 

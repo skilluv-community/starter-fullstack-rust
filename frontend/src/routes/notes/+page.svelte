@@ -48,10 +48,7 @@
     bind:value={text}
     onkeydown={(e) => e.key === 'Enter' && add()}
   />
-  <button
-    class="bg-emerald-600 hover:bg-emerald-500 rounded px-4 py-2 font-semibold"
-    onclick={add}
-  >
+  <button class="bg-emerald-600 hover:bg-emerald-500 rounded px-4 py-2 font-semibold" onclick={add}>
     {lang.t.notes_add}
   </button>
 </div>
